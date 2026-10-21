@@ -27,7 +27,8 @@ export async function generateChatResponse(messages: any[], stream = false) {
     };
 
     if (baseUrl.includes('openrouter.ai')) {
-        headers['HTTP-Referer'] = process.env.SITE_URL || 'http://localhost:5173';
+        const defaultSiteUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:5173';
+        headers['HTTP-Referer'] = process.env.SITE_URL || defaultSiteUrl;
         headers['X-Title'] = 'Prithvi & Varshini Wedding AI Concierge';
     }
 
