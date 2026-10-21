@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ *  Base
+ * ------------------------------------------------------------------ */
+
+@layer base {
+  :root {
+    /* Fractal-noise tile reused for every paper grain in the site. */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+    /* Coarser fibre tile for handmade-paper sections. */
+    --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014 0.42' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23f)'/%3E%3C/svg%3E");
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: #FBF7EE;
+  }
+
+  body {
+    background-color: #FBF7EE;
+    color: #2F1607;
+    font-family: Lora, Georgia, serif;
+    width: 100%;
+    min-height: 100%;
+    touch-action: pan-y;
+  }
+
+  #root,
+  main {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Lenis drives the scroll; the native smooth behaviour must stay off. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  ::selection {
+    @apply bg-gold/40 text-charcoal;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Textures
+ * ------------------------------------------------------------------ */
+
+@layer components {
+  /* Very subtle film/paper grain laid over a whole scene. */
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: var(--grain);
+    background-size: 260px 260px;
+    opacity: 0.085;
+    mix-blend-mode: multiply;
+  }
+
+  .grain-overlay--light {
+    opacity: 0.05;
+    mix-blend-mode: soft-light;
+  }
+
+  .grain-overlay--heavy {
+    opacity: 0.16;
+  }
+
+  /* Long-fibre handmade paper. */
+  .fibre-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: var(--fibre);
+    background-size: 420px 420px;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+  }
+
+  /* Torn / deckled paper edge, top and bottom. */
+  .deckle-top {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V10c40-6 70 4 110 1s60-9 96-6 58 9 94 7 62-10 100-8 66 11 104 9 60-10 98-9 64 12 102 10 58-11 96-9 68 13 106 10 62-11 98-9 60 8 96 6s50-5 100-2v38z' fill='%23000'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V10c40-6 70 4 110 1s60-9 96-6 58 9 94 7 62-10 100-8 66 11 104 9 60-10 98-9 64 12 102 10 58-11 96-9 68 13 106 10 62-11 98-9 60 8 96 6s50-5 100-2v38z' fill='%23000'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 40px;
+    mask-size: 100% 40px;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top;
+    mask-position: top;
+  }
+
+  /* Antique grading applied to any photograph on the site. */
+  .vintage-photo {
+    filter: sepia(0.34) saturate(0.74) contrast(0.92) brightness(1.03);
+  }
+
+  /* Hairline rule with a diamond in the middle. */
+  .rule-diamond {
+    position: relative;
+    height: 1px;
+  }
+
+  /* ------------------------------------------------------------------ *
+   *  Royal Temple Gold Foil Typography
+   *  Warm South Indian temple zari palette with multi-tone metallic sheen
+   * ------------------------------------------------------------------ */
+  .gold-foil-text {
+    background: linear-gradient(
+      135deg,
+      #94641F 0%,
+      #CD9839 20%,
+      #FFF0B8 45%,
+      #E0A842 62%,
+      #8C5718 85%,
+      #C69335 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #C69335;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Petals — three nested transforms so the drift never looks like
+ *  straight-down snowfall: fall + sway + spin, all composited.
+ * ------------------------------------------------------------------ */
+
+@keyframes petal-fall {
+  from {
+    transform: translate3d(0, -12vh, 0);
+  }
+  to {
+    transform: translate3d(0, 112vh, 0);
+  }
+}
+
+@keyframes petal-sway {
+  0% {
+    transform: translate3d(-1.6em, 0, 0) scaleX(1);
+  }
+  50% {
+    transform: translate3d(1.8em, 0, 0) scaleX(0.72);
+  }
+  100% {
+    transform: translate3d(-1.6em, 0, 0) scaleX(1);
+  }
+}
+
+@keyframes petal-spin {
+  from {
+    transform: rotate3d(0.6, 1, 0.2, 0deg);
+  }
+  to {
+    transform: rotate3d(0.6, 1, 0.2, 360deg);
+  }
+}
+
+.petal-fall {
+  animation-name: petal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.petal-sway {
+  animation-name: petal-sway;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.petal-spin {
+  animation-name: petal-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Slow ambient motion for illustrated set pieces
+ * ------------------------------------------------------------------ */
+
+@keyframes sway-slow {
+  0%,
+  100% {
+    transform: rotate(-0.7deg);
+  }
+  50% {
+    transform: rotate(0.7deg);
+  }
+}
+
+@keyframes bob-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.8deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.8deg);
+  }
+}
+
+.sway-slow {
+  animation: sway-slow 11s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+.bob-slow {
+  animation: bob-slow 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal-fall,
+  .petal-sway,
+  .petal-spin,
+  .sway-slow,
+  .bob-slow {
+    animation: none !important;
+  }
+}
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .custom-chat-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(180, 137, 60, 0.45) rgba(251, 247, 238, 0.6);
+  }
+  .custom-chat-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-chat-scrollbar::-webkit-scrollbar-track {
+    background: rgba(251, 247, 238, 0.6);
+    border-radius: 4px;
+  }
+  .custom-chat-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(180, 137, 60, 0.35);
+    border-radius: 4px;
+  }
+  .custom-chat-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(180, 137, 60, 0.65);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Polaroid Marquee Stack
+ * ------------------------------------------------------------------ */
+
+@-webkit-keyframes polaroid-marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes polaroid-marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.polaroid-marquee-track {
+  display: flex;
+  width: max-content;
+  -webkit-animation: polaroid-marquee 36s linear infinite;
+  animation: polaroid-marquee 36s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .polaroid-marquee-track:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid-marquee-track {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+}
+
