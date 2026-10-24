@@ -52,7 +52,7 @@ export function GaneshaInvitation() {
   const unrollHeight = useTransform(scrollYProgress, [0.05, 0.78], [16, targetHeight]);
   const contentOpacity = useTransform(scrollYProgress, [0.10, 0.48], [0, 1]);
 
-  const { blessingIntro, familyOne, familyTwo } = wedding.invocation;
+  const { blessingIntro, familyOne, and: andText, familyTwo } = wedding.invocation;
 
   return (
     <section
@@ -73,7 +73,7 @@ export function GaneshaInvitation() {
 
       {/* Sticky viewing chamber — locked to viewport top while parchment unrolls and stays open */}
       <div className="sticky top-0 flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 sm:px-6">
-        
+
         {/* Scroll hint indicator */}
         <motion.div
           style={{ opacity: hintOpacity }}
@@ -87,7 +87,7 @@ export function GaneshaInvitation() {
 
         {/* -------------------- Grand Antique Unrolling Scroll -------------------- */}
         <div className="relative mt-4 sm:mt-8 flex flex-col items-center justify-center w-[min(90vw,420px)] sm:w-[94vw] sm:max-w-[580px] md:max-w-[640px] lg:max-w-[680px]">
-          
+
           {/* Top Wooden/Gold Roller Spindle */}
           <ScrollRoller />
 
@@ -142,22 +142,32 @@ export function GaneshaInvitation() {
                 </p>
 
                 {/* 2. Family One */}
-                <h3 
+                <h3
                   className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2F1607] font-normal leading-tight tracking-wide"
                   style={{ textShadow: '0 1px 0 rgba(255,246,226,0.95)' }}
                 >
                   {familyOne}
                 </h3>
 
-                {/* Golden Diamond Divider */}
-                <div className="my-4 sm:my-6 flex items-center justify-center gap-3 sm:gap-5">
-                  <span className="h-px w-10 sm:w-20 bg-gradient-to-r from-transparent to-[#B4893C]/70" />
-                  <DiamondRule className="h-4 sm:h-4.5 w-36 sm:w-52 text-[#B4893C]" color="#B4893C" />
-                  <span className="h-px w-10 sm:w-20 bg-gradient-to-l from-transparent to-[#B4893C]/70" />
-                </div>
+                {/* Golden Divider / Connector */}
+                {andText ? (
+                  <div className="my-3 sm:my-5 flex items-center justify-center gap-3 sm:gap-5">
+                    <span className="h-px w-10 sm:w-20 bg-gradient-to-r from-transparent to-[#B4893C]/70" />
+                    <span className="font-serif italic text-base sm:text-lg md:text-xl text-[#8B4E18] tracking-wider">
+                      {andText}
+                    </span>
+                    <span className="h-px w-10 sm:w-20 bg-gradient-to-l from-transparent to-[#B4893C]/70" />
+                  </div>
+                ) : (
+                  <div className="my-4 sm:my-6 flex items-center justify-center gap-3 sm:gap-5">
+                    <span className="h-px w-10 sm:w-20 bg-gradient-to-r from-transparent to-[#B4893C]/70" />
+                    <DiamondRule className="h-4 sm:h-4.5 w-36 sm:w-52 text-[#B4893C]" color="#B4893C" />
+                    <span className="h-px w-10 sm:w-20 bg-gradient-to-l from-transparent to-[#B4893C]/70" />
+                  </div>
+                )}
 
                 {/* 3. Family Two */}
-                <h3 
+                <h3
                   className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2F1607] font-normal leading-tight tracking-wide"
                   style={{ textShadow: '0 1px 0 rgba(255,246,226,0.95)' }}
                 >
@@ -179,7 +189,7 @@ export function GaneshaInvitation() {
                 </h2>
 
                 <p className="font-serif text-[11px] sm:text-xs md:text-sm tracking-[0.24em] uppercase text-[#6B4A2F]/85 mt-2.5 sm:mt-3">
-                  To celebrate the auspicious wedding of their children
+                  To celebrate this auspicious wedding occasion.
                 </p>
 
                 <div className="mt-4 sm:mt-5 w-28 h-px bg-gradient-to-r from-transparent via-[#B4893C]/70 to-transparent" />

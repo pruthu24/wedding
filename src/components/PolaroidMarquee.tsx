@@ -10,24 +10,18 @@ const defaultPolaroids: PolaroidPhoto[] = [
   {
     id: 'p1',
     image: '/couple.png',
-    caption: 'Varshu & Pruthu',
-    date: 'Beginning of forever',
     rotation: -2.5,
     tape: true,
   },
   {
     id: 'p2',
     image: '/couple-2.png',
-    caption: 'Mangni Bliss ✨',
-    date: 'A golden evening',
     rotation: 3,
     tape: false,
   },
   {
     id: 'p3',
     image: '/couple.png',
-    caption: 'Laughter & Love',
-    date: 'Every single day',
     rotation: -1.5,
     crop: 'object-top',
     tape: true,
@@ -35,24 +29,18 @@ const defaultPolaroids: PolaroidPhoto[] = [
   {
     id: 'p4',
     image: '/couple-2.png',
-    caption: 'Two Souls, One Heart',
-    date: 'Forever entwined',
     rotation: 2.5,
     tape: false,
   },
   {
     id: 'p5',
     image: '/couple.png',
-    caption: 'The Promise ❤️',
-    date: 'With love & trust',
     rotation: -3,
     tape: true,
   },
   {
     id: 'p6',
     image: '/couple-2.png',
-    caption: 'Cherished Moments',
-    date: 'November 2026',
     rotation: 1.8,
     tape: false,
   },
@@ -96,7 +84,7 @@ export function PolaroidMarquee({
             >
               {/* Polaroid Frame Card */}
               <div
-                className="relative w-[210px] sm:w-[245px] md:w-[265px] bg-[#FFFDF9] p-3 pb-5 sm:p-3.5 sm:pb-6 rounded-[2px] border border-[#EADBCA] transition-all duration-300 ease-out shadow-[0_12px_28px_rgba(47,22,7,0.13),0_2px_6px_rgba(47,22,7,0.06)] group-hover:scale-105 group-hover:!rotate-0 group-hover:z-50 group-hover:shadow-[0_22px_44px_rgba(47,22,7,0.22),0_4px_12px_rgba(47,22,7,0.1)]"
+                className="relative w-[210px] sm:w-[245px] md:w-[265px] bg-[#FFFDF9] p-3 pb-6 sm:p-3.5 sm:pb-8 rounded-[2px] border border-[#EADBCA] transition-all duration-300 ease-out shadow-[0_12px_28px_rgba(47,22,7,0.13),0_2px_6px_rgba(47,22,7,0.06)] group-hover:scale-105 group-hover:!rotate-0 group-hover:z-50 group-hover:shadow-[0_22px_44px_rgba(47,22,7,0.22),0_4px_12px_rgba(47,22,7,0.1)]"
                 style={{
                   transform: `rotate(${rotationAngle}deg)`,
                 }}
@@ -117,7 +105,7 @@ export function PolaroidMarquee({
                 <div className="relative w-full aspect-square overflow-hidden rounded-[2px] bg-[#EDE4D5]">
                   <img
                     src={photo.image}
-                    alt={photo.caption}
+                    alt={photo.caption || 'Wedding celebration moment'}
                     loading="lazy"
                     className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${photo.crop || 'object-center'}`}
                   />
@@ -127,18 +115,6 @@ export function PolaroidMarquee({
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-tr from-[#8B4E18]/10 via-transparent to-white/20 pointer-events-none"
                   />
-                </div>
-
-                {/* Polaroid Chin / Caption */}
-                <div className="mt-3 sm:mt-3.5 text-center px-1">
-                  <p className="font-serif italic text-[14px] sm:text-[15px] font-medium text-[#2F1607] tracking-wide leading-snug">
-                    {photo.caption}
-                  </p>
-                  {photo.date && (
-                    <p className="font-serif text-[10px] sm:text-[11px] uppercase tracking-widest text-[#8B4E18]/70 mt-1 font-light">
-                      {photo.date}
-                    </p>
-                  )}
                 </div>
               </div>
             </div>

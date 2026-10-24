@@ -24,7 +24,7 @@ export interface WeddingEvent {
 export interface PolaroidPhoto {
   id?: string;
   image: string;
-  caption: string;
+  caption?: string;
   date?: string;
   rotation?: number;
   crop?: string;
@@ -45,6 +45,7 @@ export interface WeddingConfig {
     mantra: string;
     blessingIntro: string;
     familyOne: string;
+    and?: string;
     familyTwo: string;
     word: string;
   };
@@ -108,8 +109,9 @@ export const wedding: WeddingConfig = {
 
   invocation: {
     mantra: 'ॐ श्री वेंकटेशाय नमः',
-    blessingIntro: 'With the heavenly blessings of',
+    blessingIntro: 'Together with their Families',
     familyOne: 'Indira Balaram Family',
+    and: 'And',
     familyTwo: 'Potham Family',
     word: 'INVITE',
   },
@@ -137,48 +139,36 @@ export const wedding: WeddingConfig = {
       {
         id: 'p1',
         image: '/couple.jpg',
-        caption: 'Varshu & Pruthu',
-        date: 'Beginning of forever',
         rotation: -2.5,
         tape: true,
       },
       {
         id: 'p2',
         image: '/couple3.jpg',
-        caption: 'Royal Reception ✨',
-        date: '18th November',
         rotation: 3,
         tape: false,
       },
       {
         id: 'p3',
         image: '/couple2.jpg',
-        caption: 'Wedding Joy ❤️',
-        date: 'Auspicious Muhurtham',
         rotation: -1.5,
         tape: true,
       },
       {
         id: 'p4',
         image: '/couple5.jpg',
-        caption: 'Two Souls, One Heart',
-        date: 'Forever entwined',
         rotation: 2.5,
         tape: false,
       },
       {
         id: 'p5',
         image: '/couple4.jpg',
-        caption: 'The Promise',
-        date: 'With love & trust',
         rotation: -3,
         tape: true,
       },
       {
         id: 'p6',
         image: '/reception.jpg',
-        caption: 'A Golden Evening',
-        date: 'November 2026',
         rotation: 1.8,
         tape: false,
       },
