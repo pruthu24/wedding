@@ -1,52 +1,48 @@
-import { ComicNavbar } from './comic/ComicNavbar';
-import { ComicHero } from './comic/ComicHero';
+import { StationeryNavbar } from './stationery/StationeryNavbar';
+import { StationeryHero } from './stationery/StationeryHero';
 import { HorizontalStory } from './HorizontalStory';
-import { ComicInvitation } from './comic/ComicInvitation';
-import { ComicGallery } from './comic/ComicGallery';
-import { ComicEvents } from './comic/ComicEvents';
-import { ComicRSVP } from './comic/ComicRSVP';
-import { ComicFooter } from './comic/ComicFooter';
-import { useConfetti, ConfettiCanvas } from './doodle/ConfettiEffect';
+import { StationeryInvitation } from './stationery/StationeryInvitation';
+import { StationeryGallery } from './stationery/StationeryGallery';
+import { StationeryEvents } from './stationery/StationeryEvents';
+import { StationeryRSVP } from './stationery/StationeryRSVP';
+import { StationeryFooter } from './stationery/StationeryFooter';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 
 /**
- * Prithvi & Varshini — Illustrated Indian Storybook & Comic-Romance Adventure
- * Directly inspired by traditional hand-drawn Indian wedding caricature art.
+ * Prithvi & Varshini — Bespoke Illustrated Indian Wedding Stationery Experience
+ * Inspired by luxury hand-drawn illustrations, delicate watercolor washes,
+ * traditional Indian wedding motifs, and refined editorial web design.
  */
 export function WeddingExperience() {
   useSmoothScroll();
-  const { particles, triggerConfetti } = useConfetti();
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FFF9ED] text-[#2A1D18] font-sans selection:bg-[#F5B738] selection:text-[#2A1D18] overflow-x-hidden">
+    <div className="relative min-h-screen w-full bg-[#FAF7F0] text-[#49372B] font-editorial selection:bg-[#B69A62]/30 selection:text-[#49372B] overflow-x-hidden">
       
-      {/* Top Floating / Sticky Storybook Navbar */}
-      <ComicNavbar onThrowConfetti={() => triggerConfetti()} />
-
-      {/* Confetti Particle Canvas */}
-      <ConfettiCanvas particles={particles} />
+      {/* 1. Bespoke Illustrated Stationery Navbar */}
+      <StationeryNavbar />
 
       <main className="relative w-full">
-        {/* 1. Hero: Toran, Ganesha, Save the Date, Milestone Comic Scroll & Grand Couple Centerpiece */}
-        <ComicHero onThrowConfetti={() => triggerConfetti()} />
+        {/* 2. Hero: Mandap Canopy, Ganesha Inscription, Calligraphy Names, Countdown & Drifting Petals */}
+        <StationeryHero />
 
-        {/* 2. Marigold Blessings Marquee Ticker */}
+        {/* 3. Auspicious Blessings Marquee Ticker */}
         <HorizontalStory />
 
-        {/* 3. Sacred South Indian Mandap Family Invitation */}
-        <ComicInvitation />
+        {/* 4. Sacred Digital Invitation Letter (Indira Balaram Family And Potham Family) */}
+        <StationeryInvitation />
 
-        {/* 4. Comic Scrapbook Memories Marquee & Full-Screen Lightbox */}
-        <ComicGallery />
+        {/* 5. Botanical Scrapbook Photo Gallery & Lightbox */}
+        <StationeryGallery />
 
-        {/* 5. The Wedding Itinerary (Grand Reception & Auspicious Muhurtham) */}
-        <ComicEvents />
+        {/* 6. Illustrated Event Celebration Cards (Reception & Auspicious Muhurtham) */}
+        <StationeryEvents />
 
-        {/* 6. The Interactive RSVP Experience & AI Concierge */}
-        <ComicRSVP />
+        {/* 7. Interactive RSVP Card & AI Concierge */}
+        <StationeryRSVP />
 
-        {/* 7. Storybook Footer */}
-        <ComicFooter />
+        {/* 8. Poetic Stationery Sign-Off & Sanskrit Blessings */}
+        <StationeryFooter />
       </main>
 
     </div>

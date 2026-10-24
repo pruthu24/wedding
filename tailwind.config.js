@@ -4,6 +4,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Bespoke Illustrated Indian Wedding Stationery Palette
+        stationery: {
+          ivory: '#FAF7F0',
+          cream: '#F5EBDD',
+          sage: '#A6B49A',
+          marigold: '#E9B949',
+          terracotta: '#C87558',
+          blush: '#D8A6A0',
+          gold: '#B69A62',
+          'gold-light': '#D4AF37',
+          'green-deep': '#475747',
+          'ink-brown': '#49372B',
+          'ink-muted': '#725E50',
+          'card-bg': '#FFFDF9',
+        },
+
         // Ceramic / Soft Clay Premium Palette (Matching Reference Website)
         clay: {
           sage: '#8F9F86',
@@ -67,10 +83,12 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         hand: ['"Caveat"', 'cursive'],
         kalam: ['"Kalam"', '"Caveat"', 'cursive'],
-        script: ['"Great Vibes"', 'cursive'],
+        script: ['"Alex Brush"', '"Great Vibes"', 'cursive'],
+        editorial: ['"Cormorant Garamond"', '"Fraunces"', 'Georgia', 'serif'],
+        marcellus: ['"Marcellus"', '"Fraunces"', 'serif'],
+        serif: ['"Fraunces"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         comic: ['"Kalam"', '"Caveat"', 'cursive'],
         doodle: ['"Kalam"', '"Fraunces"', 'cursive'],
-        serif: ['"Fraunces"', 'Georgia', 'serif'],
       },
       letterSpacing: {
         widest2: '0.28em',

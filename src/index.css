@@ -424,8 +424,93 @@
   75% { transform: rotate(2deg); }
 }
 
-.hover-wiggle:hover {
-  animation: gentle-wiggle 0.4s ease-in-out infinite;
+/* ------------------------------------------------------------------ *
+ *  Bespoke Illustrated Stationery Styles
+ * ------------------------------------------------------------------ */
+
+@keyframes sway-botanical {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(1.8deg) skewX(0.8deg);
+  }
 }
+
+@keyframes sway-botanical-alt {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(-2.2deg) skewX(-1deg);
+  }
+}
+
+@keyframes bell-sway {
+  0%, 100% {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+  30% {
+    transform: rotate(3deg);
+    transform-origin: top center;
+  }
+  70% {
+    transform: rotate(-3deg);
+    transform-origin: top center;
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-sway-subtle {
+  animation: sway-botanical 6s ease-in-out infinite;
+}
+
+.animate-sway-alt {
+  animation: sway-botanical-alt 7.5s ease-in-out infinite;
+}
+
+.animate-bell {
+  animation: bell-sway 4s ease-in-out infinite;
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #B69A62 0%, #E9B949 25%, #FFF0C2 50%, #B69A62 75%, #8A6D3B 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 8s linear infinite;
+}
+
+.gold-border-double {
+  border: 1px solid #B69A62;
+  box-shadow: inset 0 0 0 3px #FAF7F0, inset 0 0 0 4px #B69A62;
+}
+
+.stationery-paper {
+  background-color: #FAF7F0;
+  background-image: 
+    radial-gradient(ellipse at 15% 20%, rgba(233, 185, 73, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 80%, rgba(200, 117, 88, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(166, 180, 154, 0.05) 0%, transparent 65%);
+}
+
+.stationery-card {
+  background-color: #FFFDF9;
+  border: 1px solid rgba(182, 154, 98, 0.35);
+  box-shadow: 
+    0 1px 3px rgba(73, 55, 43, 0.04),
+    0 10px 25px -5px rgba(73, 55, 43, 0.07),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
 
 

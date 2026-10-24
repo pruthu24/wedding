@@ -107,11 +107,11 @@ export function HorizontalStory() {
   return (
     <section 
       aria-label="Celebration blessings banner"
-      className="relative w-full overflow-hidden bg-[#F5B738] py-2.5 sm:py-3.5 border-y-3 border-[#2A1D18] z-20 select-none shadow-xs"
+      className="relative w-full overflow-hidden bg-[#F5EBDD] py-3 sm:py-3.5 border-y border-[#B69A62]/40 z-20 select-none shadow-xs"
     >
       {/* Subtle edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#F5B738] to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#F5B738] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#F5EBDD] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#F5EBDD] to-transparent z-10" />
 
       {/* Infinite scrolling ticker */}
       <motion.div
@@ -128,14 +128,14 @@ export function HorizontalStory() {
             <span
               className={`px-3 sm:px-4 ${
                 item.highlight
-                  ? "font-serif font-extrabold text-sm sm:text-base text-[#2A1D18] tracking-wider"
-                  : "font-comic font-bold text-sm sm:text-base text-[#2A1D18]/90"
+                  ? "font-editorial font-bold text-sm sm:text-base text-[#B69A62] tracking-widest uppercase"
+                  : "font-editorial text-sm sm:text-base text-[#49372B]/85 tracking-wide"
               }`}
             >
               {item.text}
             </span>
-            <span className="text-[#2A1D18] text-xs select-none px-2 sm:px-3">
-              🌻
+            <span className="text-[#B69A62] text-xs select-none px-2 sm:px-3">
+              ✦
             </span>
           </div>
         ))}
