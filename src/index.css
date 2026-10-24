@@ -18,13 +18,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: #FBF7EE;
+    background-color: #FAF8F3;
   }
 
   body {
-    background-color: #FBF7EE;
-    color: #2F1607;
-    font-family: Lora, Georgia, serif;
+    background-color: #FAF8F3;
+    color: #262626;
+    font-family: 'Quicksand', 'Nunito', system-ui, sans-serif;
     width: 100%;
     min-height: 100%;
     touch-action: pan-y;
@@ -305,4 +305,127 @@
     animation: none !important;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ *  Doodle & Scrapbook Wonderland
+ * ------------------------------------------------------------------ */
+
+@layer utilities {
+  /* Subtle notebook grid */
+  .notebook-grid {
+    background-image: 
+      linear-gradient(to right, rgba(38, 38, 38, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 38, 38, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Notebook dot paper */
+  .notebook-dots {
+    background-image: radial-gradient(rgba(38, 38, 38, 0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Organic hand-drawn borders */
+  .hand-drawn-border {
+    border-style: solid;
+    border-color: #262626;
+    border-width: 2px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+
+  .hand-drawn-border-sm {
+    border-style: solid;
+    border-color: #262626;
+    border-width: 1.5px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  }
+
+  /* Highlighter markers */
+  .highlighter-yellow {
+    position: relative;
+    display: inline-block;
+  }
+  .highlighter-yellow::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 2px;
+    height: 40%;
+    background-color: rgba(255, 209, 102, 0.65);
+    z-index: -1;
+    transform: rotate(-1deg);
+    border-radius: 3px;
+  }
+
+  .highlighter-coral {
+    position: relative;
+    display: inline-block;
+  }
+  .highlighter-coral::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 2px;
+    height: 40%;
+    background-color: rgba(239, 71, 111, 0.35);
+    z-index: -1;
+    transform: rotate(0.8deg);
+    border-radius: 3px;
+  }
+
+  .highlighter-mint {
+    position: relative;
+    display: inline-block;
+  }
+  .highlighter-mint::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 2px;
+    height: 40%;
+    background-color: rgba(6, 214, 160, 0.35);
+    z-index: -1;
+    transform: rotate(-0.5deg);
+    border-radius: 3px;
+  }
+
+  /* Washi tape accents */
+  .washi-tape-yellow {
+    background: rgba(255, 209, 102, 0.85);
+    box-shadow: 0 1px 3px rgba(38, 38, 38, 0.12);
+    clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 97% 95%, 95% 100%, 5% 100%, 0% 95%);
+  }
+
+  .washi-tape-coral {
+    background: rgba(239, 71, 111, 0.75);
+    box-shadow: 0 1px 3px rgba(38, 38, 38, 0.12);
+    clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 97% 95%, 95% 100%, 5% 100%, 0% 95%);
+  }
+
+  .washi-tape-mint {
+    background: rgba(6, 214, 160, 0.75);
+    box-shadow: 0 1px 3px rgba(38, 38, 38, 0.12);
+    clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 97% 95%, 95% 100%, 5% 100%, 0% 95%);
+  }
+
+  .washi-tape-blue {
+    background: rgba(17, 138, 178, 0.75);
+    box-shadow: 0 1px 3px rgba(38, 38, 38, 0.12);
+    clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 97% 95%, 95% 100%, 5% 100%, 0% 95%);
+  }
+}
+
+@keyframes gentle-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.hover-wiggle:hover {
+  animation: gentle-wiggle 0.4s ease-in-out infinite;
+}
+
 

@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Grain } from "./art/Textures";
 import { wedding } from "../config/wedding";
 
 function formatBlessing(name: string, prefix = "from the blessings of"): string {
@@ -84,15 +83,15 @@ export function HorizontalStory() {
 
     // Interleave celebratory phrases with the blessings for a rich, royal rhythm
     const items: { text: string; highlight: boolean }[] = [
-      { text: "CELEBRATING PRITHVI & VARSHINI", highlight: true },
+      { text: "✨ CELEBRATING PRITHVI & VARSHINI ✨", highlight: true },
     ];
 
     blessingItems.forEach((blessing, idx) => {
       items.push(blessing);
       if (idx === 3) {
-        items.push({ text: "TWO HEARTS, ONE BEAUTIFUL JOURNEY", highlight: true });
+        items.push({ text: "💛 TWO HEARTS, ONE BEAUTIFUL JOURNEY 💛", highlight: true });
       } else if (idx === 7) {
-        items.push({ text: "BEGINNING OF FOREVER", highlight: true });
+        items.push({ text: "🎉 BEGINNING OF FOREVER 🎉", highlight: true });
       }
     });
 
@@ -107,21 +106,14 @@ export function HorizontalStory() {
 
   return (
     <section 
-      aria-label="Celebration banner"
-      className="relative w-full overflow-hidden bg-[#FBF7EE] py-3.5 sm:py-4.5 border-y border-[#B4893C]/35 shadow-[0_4px_20px_rgba(47,22,7,0.06)] z-20"
+      aria-label="Celebration blessings banner"
+      className="relative w-full overflow-hidden bg-[#F5B738] py-2.5 sm:py-3.5 border-y-3 border-[#2A1D18] z-20 select-none shadow-xs"
     >
-      {/* Delicate paper texture */}
-      <Grain className="opacity-15" />
+      {/* Subtle edge fades */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#F5B738] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#F5B738] to-transparent z-10" />
 
-      {/* Subtle edge fades for smooth entry/exit */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#FBF7EE] to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#FBF7EE] to-transparent z-10" />
-
-      {/* Hairline gold accent borders */}
-      <div className="absolute inset-x-0 top-[2px] h-px bg-gradient-to-r from-transparent via-[#B4893C]/30 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-[2px] h-px bg-gradient-to-r from-transparent via-[#B4893C]/30 to-transparent pointer-events-none" />
-
-      {/* Infinite scrolling ribbon */}
+      {/* Infinite scrolling ticker */}
       <motion.div
         className="flex whitespace-nowrap items-center will-change-transform"
         animate={{ x: ["0%", "-50%"] }}
@@ -134,16 +126,16 @@ export function HorizontalStory() {
         {repeated.map((item, idx) => (
           <div key={idx} className="flex items-center shrink-0">
             <span
-              className={`font-serif uppercase tracking-[0.28em] text-[11px] sm:text-[13px] px-3 sm:px-4 ${
+              className={`px-3 sm:px-4 ${
                 item.highlight
-                  ? "font-display font-medium text-[#9C7026] tracking-[0.32em]"
-                  : "text-[#6B4A2F]/85"
+                  ? "font-serif font-extrabold text-sm sm:text-base text-[#2A1D18] tracking-wider"
+                  : "font-comic font-bold text-sm sm:text-base text-[#2A1D18]/90"
               }`}
             >
               {item.text}
             </span>
-            <span className="text-[#B4893C] text-[10px] sm:text-xs select-none opacity-80 px-2 sm:px-3">
-              ✦
+            <span className="text-[#2A1D18] text-xs select-none px-2 sm:px-3">
+              🌻
             </span>
           </div>
         ))}
