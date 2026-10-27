@@ -65,12 +65,14 @@ export default {
       fontFamily: {
         display: ['"Fraunces"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        hand: ['"Caveat"', 'cursive'],
+        hand: ['"Patrick Hand"', '"Caveat"', 'cursive'],
         kalam: ['"Kalam"', '"Caveat"', 'cursive'],
-        script: ['"Great Vibes"', 'cursive'],
-        comic: ['"Kalam"', '"Caveat"', 'cursive'],
-        doodle: ['"Kalam"', '"Fraunces"', 'cursive'],
+        script: ['"Marck Script"', '"Great Vibes"', 'cursive'],
+        comic: ['"Patrick Hand"', '"Kalam"', 'cursive'],
+        doodle: ['"Patrick Hand"', '"Fraunces"', 'cursive'],
         serif: ['"Fraunces"', 'Georgia', 'serif'],
+        marck: ['"Marck Script"', '"Great Vibes"', 'cursive'],
+        patrick: ['"Patrick Hand"', '"Caveat"', 'cursive'],
       },
       letterSpacing: {
         widest2: '0.28em',

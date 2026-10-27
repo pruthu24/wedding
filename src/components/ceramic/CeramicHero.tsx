@@ -139,7 +139,7 @@ export function CeramicHero({ onThrowConfetti }: CeramicHeroProps) {
               </div>
             </div>
             <h4 className="font-display text-lg sm:text-xl font-bold text-[#6B2634] mt-3">
-              Varshu &amp; Pruthu
+              Varshini &amp; Prithvi
             </h4>
             <p className="font-sans text-xs text-[#2A1F1E]/60 mt-0.5">
               Two hearts, one story

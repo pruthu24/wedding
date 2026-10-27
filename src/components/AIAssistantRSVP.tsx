@@ -6,8 +6,8 @@ export function AIAssistantRSVP() {
   const [messages, setMessages] = useState<{ role: 'ai' | 'guest'; content: string; rawContent?: string }[]>([
     {
       role: 'ai',
-      content: "Hi! I'm the little AI assistant helping Prithvi & Varshu keep track of their favorite people. ❤️\n\nFirst things first...\n\nWhat's your name, and are you from the bride's side or the groom's side?",
-      rawContent: "Hi! I'm the little AI assistant helping Prithvi & Varshu keep track of their favorite people. ❤️\n\nFirst things first...\n\nWhat's your name, and are you from the bride's side or the groom's side?",
+      content: "Hi! I'm the little AI assistant helping Prithvi & Varshini keep track of their favorite people. ❤️\n\nFirst things first...\n\nWhat's your name, and are you from the bride's side or the groom's side?",
+      rawContent: "Hi! I'm the little AI assistant helping Prithvi & Varshini keep track of their favorite people. ❤️\n\nFirst things first...\n\nWhat's your name, and are you from the bride's side or the groom's side?",
     },
   ]);
   const [input, setInput] = useState('');
@@ -22,7 +22,7 @@ export function AIAssistantRSVP() {
   const funnyLoadingPhrases = [
     "Consulting the wedding astrologer 📜✨...",
     "Double-checking the guest list 🧐📝...",
-    "Asking Varshu what to say next 🏃‍♀️💨...",
+    "Asking Varshini what to say next 🏃‍♀️💨...",
     "Waking up Prithvi for the answer 😴...",
     "Arranging the plantain leaves 🍃🍛...",
     "Polishing the wedding rings 💍✨...",

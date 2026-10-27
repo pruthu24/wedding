@@ -175,7 +175,7 @@ export function DoodleHero({ onThrowConfetti }: DoodleHeroProps) {
             {/* Handwritten note on bottom */}
             <div className="mt-3 flex items-center justify-between px-1">
               <span className="font-doodle text-base sm:text-lg font-bold text-[#262626]">
-                Varshu &amp; Pruthu 💕
+                Varshini &amp; Prithvi 💕
               </span>
               <span className="font-hand text-[11px] text-[#D96C4A] font-semibold">
                 Beginning of Forever

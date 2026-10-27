@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { wedding, whatsappUrl } from '../../config/wedding';
+import { whatsappUrl } from '../../config/wedding';
 
 interface ChatMessage {
   role: 'ai' | 'guest';
@@ -173,51 +173,57 @@ export function ComicRSVP() {
   };
 
   return (
-    <section id="rsvp" className="relative w-full py-16 sm:py-24 bg-[#FAF7F0] overflow-hidden select-none">
+    <section id="rsvp" className="relative w-full py-16 sm:py-24 bg-transparent overflow-hidden select-none">
       
       {/* Section Header */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-10 select-none">
-        <span className="font-comic text-xs sm:text-sm font-bold uppercase tracking-widest text-[#D4527D] block">
-          ~ Your Presence = Our Happiness ❤️ ~
-        </span>
+        <div className="inline-block">
+          <div className="flex items-center justify-center gap-2 text-[#3D2E24]/50 mb-1">
+            <span className="font-hand text-lg">~ 🌸 ~</span>
+          </div>
 
-        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#2A1D18] tracking-tight mt-1">
-          So... are you coming?
-        </h2>
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-[#3D2E24] tracking-tight">
+            RSVP
+          </h2>
 
-        <p className="font-comic text-base sm:text-lg text-[#2A1D18]/80 max-w-lg mx-auto mt-2">
-          Help us save you a little spot in our storybook celebrations!
-        </p>
+          <p className="font-script text-2xl sm:text-3xl text-[#557A3C] mt-1">
+            Celebrate With Us
+          </p>
+
+          <p className="font-hand text-lg sm:text-xl text-[#3D2E24]/80 max-w-lg mx-auto mt-2 leading-relaxed">
+            Help us save you a little spot in our storybook celebrations! Chat with our wedding sidekick or confirm directly on WhatsApp.
+          </p>
+        </div>
       </div>
 
-      {/* Comic Chat Card */}
+      {/* Storybook Chat Card */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="rounded-3xl bg-[#FFF9ED] border-4 border-[#2A1D18] shadow-[8px_10px_0px_#2A1D18] overflow-hidden flex flex-col">
+        <div className="rounded-3xl bg-[#FAF4E8]/95 backdrop-blur-xs border-2 border-[#3D2E24]/20 shadow-md overflow-hidden flex flex-col">
           
           {/* Header Bar */}
-          <div className="px-6 py-4 bg-[#6A9A4A] border-b-3 border-[#2A1D18] text-[#FFF9ED] flex items-center justify-between">
+          <div className="px-6 py-4 bg-[#889A80] text-white flex items-center justify-between border-b border-[#3D2E24]/15">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#F5B738] border-2 border-[#2A1D18] flex items-center justify-center text-xl shadow-xs">
+              <div className="w-10 h-10 rounded-full bg-[#FAF4E8] border border-[#3D2E24]/20 flex items-center justify-center text-xl shadow-xs">
                 💌
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-[#FFF9ED] leading-none">
+                <h3 className="font-serif text-lg font-bold text-white leading-none">
                   Wedding Sidekick
                 </h3>
-                <p className="font-comic text-xs text-[#FAF7F0] mt-0.5 font-medium">
-                  Helping Prithvi &amp; Varshu keep count! ✨
+                <p className="font-hand text-xs text-white/90 mt-0.5 font-medium">
+                  Helping Prithvi &amp; Varshini keep count! ✨
                 </p>
               </div>
             </div>
-            <span className="px-3 py-1 bg-[#487A38] text-[#FFF9ED] text-xs font-bold rounded-full font-comic border border-[#2A1D18]">
-              Ready!
+            <span className="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-full font-hand border border-white/30">
+              Online &amp; Ready
             </span>
           </div>
 
           {/* Messages Container */}
           <div
             ref={chatRef}
-            className="p-5 sm:p-7 space-y-4 max-h-[380px] min-h-[280px] overflow-y-auto bg-[#FFF9ED]"
+            className="p-5 sm:p-7 space-y-4 max-h-[380px] min-h-[280px] overflow-y-auto bg-[#FAF4E8]/60"
           >
             {messages.map((msg, i) => (
               <div
@@ -225,10 +231,10 @@ export function ComicRSVP() {
                 className={`flex ${msg.role === 'ai' ? 'justify-start' : 'justify-end'}`}
               >
                 <div
-                  className={`max-w-[85%] sm:max-w-[78%] p-4 rounded-2xl border-2 border-[#2A1D18] font-comic text-base sm:text-lg leading-relaxed whitespace-pre-wrap select-text ${
+                  className={`max-w-[85%] sm:max-w-[78%] p-4 rounded-2xl border font-hand text-lg leading-relaxed whitespace-pre-wrap select-text shadow-2xs ${
                     msg.role === 'ai'
-                      ? 'bg-[#FAF7F0] text-[#2A1D18] shadow-[2px_3px_0px_#2A1D18] rounded-tl-none'
-                      : 'bg-[#F5B738] text-[#2A1D18] font-bold shadow-[2px_3px_0px_#2A1D18] rounded-tr-none'
+                      ? 'bg-white text-[#3D2E24] border-[#889A80]/30 rounded-tl-none'
+                      : 'bg-[#FAF0ED] text-[#3D2E24] font-bold border-[#DE8B7C]/40 rounded-tr-none'
                   }`}
                 >
                   {msg.content}
@@ -238,7 +244,7 @@ export function ComicRSVP() {
 
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-[#FAF7F0] text-[#D4527D] border-2 border-[#2A1D18] px-4 py-2 rounded-full text-xs font-comic font-bold flex items-center gap-2 shadow-xs">
+                <div className="bg-white text-[#DE8B7C] border border-[#3D2E24]/15 px-4 py-2 rounded-full text-xs font-hand font-bold flex items-center gap-2 shadow-2xs">
                   <span>Writing to you</span>
                   <span className="animate-bounce">✍️</span>
                 </div>
@@ -247,14 +253,14 @@ export function ComicRSVP() {
           </div>
 
           {/* Suggested Pills */}
-          <div className="px-4 py-2.5 bg-[#FAF7F0] border-t-2 border-dashed border-[#2A1D18]/25">
+          <div className="px-4 py-2.5 bg-[#FAF4E8] border-t border-dashed border-[#3D2E24]/20">
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {SUGGESTIONS.map((s, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => handleSend(s)}
-                  className="shrink-0 px-3.5 py-1.5 bg-[#FFF9ED] hover:bg-[#F5B738] text-[#2A1D18] font-comic text-xs font-bold rounded-full border-2 border-[#2A1D18] shadow-xs transition-colors cursor-pointer whitespace-nowrap"
+                  className="shrink-0 px-3.5 py-1.5 bg-white hover:bg-[#889A80] hover:text-white text-[#3D2E24] font-hand text-sm font-bold rounded-full border border-[#3D2E24]/20 shadow-2xs transition-colors cursor-pointer whitespace-nowrap"
                 >
                   {s}
                 </button>
@@ -263,7 +269,7 @@ export function ComicRSVP() {
           </div>
 
           {/* Input & Send Bar */}
-          <div className="p-3 sm:p-4 bg-[#FAF7F0] border-t-3 border-[#2A1D18]">
+          <div className="p-3 sm:p-4 bg-[#FAF4E8] border-t border-[#3D2E24]/15">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -276,14 +282,14 @@ export function ComicRSVP() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message or ask a question..."
-                className="flex-1 px-4 sm:px-5 py-2.5 sm:py-3 bg-[#FFF9ED] border-2 border-[#2A1D18] rounded-full font-comic text-base text-[#2A1D18] placeholder:text-[#2A1D18]/45 focus:outline-hidden focus:ring-2 focus:ring-[#F5B738]"
+                className="flex-1 px-4 sm:px-5 py-2.5 sm:py-3 bg-white border border-[#3D2E24]/25 rounded-full font-hand text-lg text-[#3D2E24] placeholder:text-[#3D2E24]/40 focus:outline-hidden focus:ring-2 focus:ring-[#889A80]"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isTyping}
-                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-[#E8769D] hover:bg-[#d85c86] disabled:opacity-50 text-[#2A1D18] font-comic text-sm font-bold uppercase tracking-wider rounded-full border-2 border-[#2A1D18] shadow-[2px_2px_0px_#2A1D18] transition-transform active:scale-95 cursor-pointer"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-[#889A80] hover:bg-[#74866C] disabled:opacity-50 text-white font-serif text-sm font-bold uppercase tracking-wider rounded-full border border-[#3D2E24]/15 shadow-xs transition-transform active:scale-95 cursor-pointer"
               >
-                Send 🚀
+                Send 💌
               </button>
             </form>
           </div>
@@ -296,13 +302,13 @@ export function ComicRSVP() {
             href={whatsappUrl()}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#6A9A4A] hover:bg-[#59843e] text-[#FFF9ED] font-comic text-base font-bold rounded-full border-2 border-[#2A1D18] shadow-[3px_4px_0px_#2A1D18] transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#889A80] hover:bg-[#74866C] text-white font-serif text-sm sm:text-base font-bold tracking-wide uppercase rounded-full border border-[#3D2E24]/15 shadow-sm transition-all active:scale-95 cursor-pointer"
           >
             <span className="text-xl">📲</span>
             <span>Prefer WhatsApp? Message Us Directly</span>
           </a>
-          <p className="font-comic text-xs text-[#2A1D18]/70 mt-2">
-            WhatsApp Line: +{wedding.rsvp.whatsappNumber}
+          <p className="font-hand text-sm text-[#3D2E24]/70 mt-2">
+            WhatsApp Line: +91 80882 86893
           </p>
         </div>
 

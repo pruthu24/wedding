@@ -207,7 +207,7 @@ export const wedding: WeddingConfig = {
     headingTop: 'PLEASE',
     headingBottom: 'RSVP',
     prompt: 'Click to message on WhatsApp',
-    whatsappNumber: '919876543210',
+    whatsappNumber: '918088286893',
     message:
       'Hello! Thank you for the invitation to Prithvi & Varshini’s wedding. I would love to RSVP —',
   },
@@ -324,7 +324,7 @@ export const weddingNew = {
   rsvp: {
     lines: ["PLEASE", "RSVP"],
     prompt: "Click to message on WhatsApp",
-    whatsappNumber: "919876543210",
+    whatsappNumber: "918088286893",
     message: "Hello! We are delighted to RSVP for the wedding of Prithvi & Varshini. Looking forward to celebrating with you!",
   },
 

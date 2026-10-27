@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { fireGrandConfettiBurst } from '../doodle/ConfettiEffect';
 
 const NAV_LINKS = [
-  { id: 'hero', label: 'Story & Milestones' },
-  { id: 'invitation', label: 'Invitation' },
-  { id: 'memories', label: 'Moments' },
-  { id: 'events', label: 'Schedule' },
+  { id: 'hero', label: 'Home' },
+  { id: 'quiz', label: 'Quiz' },
+  { id: 'events', label: 'Events' },
+  { id: 'gallery', label: 'Gallery' },
   { id: 'rsvp', label: 'RSVP' },
 ];
 
@@ -36,61 +38,81 @@ export function ComicNavbar({ onThrowConfetti }: { onThrowConfetti?: () => void 
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FFF9ED]/95 backdrop-blur-md border-b-3 border-[#2A1D18] py-3 px-4 sm:px-8 select-none shadow-xs">
+    <header className="sticky top-0 z-50 w-full bg-[#FAF4E8]/95 backdrop-blur-md border-b-2 border-[#3D2E24]/15 py-2.5 px-4 sm:px-8 select-none shadow-xs">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         
         {/* Brand */}
         <button
           onClick={() => scrollTo('hero')}
-          className="text-left group cursor-pointer flex items-center gap-2"
+          className="text-left group cursor-pointer flex items-center gap-3"
         >
-          <span className="text-xl">🌸</span>
+          <img
+            src="/navbar_ganesha.png"
+            alt="Lord Ganesha"
+            className="w-11 h-11 sm:w-13 sm:h-13 object-contain group-hover:scale-105 transition-transform shrink-0 drop-shadow-2xs"
+          />
           <div>
-            <span className="font-serif text-base sm:text-lg font-extrabold text-[#2A1D18] block leading-none">
-              Prithvi &amp; Varshini
+            <span className="font-serif text-base sm:text-lg font-bold text-[#3D2E24] block leading-none">
+              Prithvi Kumar &amp; Varshini
             </span>
-            <span className="font-comic text-xs text-[#487A38] font-bold block mt-0.5">
+            <span className="font-hand text-xs text-[#557A3C] font-semibold block mt-0.5">
               18 &amp; 19 Nov 2026 • Bengaluru
             </span>
           </div>
         </button>
 
-        {/* Center Nav Links */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Center Nav Links with Hand-Drawn Flourishes */}
+        <nav className="hidden md:flex items-center gap-1 sm:gap-2">
+          <span className="text-[#3D2E24]/40 text-sm mr-1">🌸 ~</span>
           {NAV_LINKS.map((link) => {
             const isActive = active === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className={`font-comic text-sm transition-all cursor-pointer ${
+                className={`font-hand text-base px-3.5 py-1 rounded-full transition-all cursor-pointer ${
                   isActive
-                    ? 'text-[#2A1D18] font-extrabold bg-[#F5B738] px-3 py-1 rounded-full border border-[#2A1D18] shadow-xs -rotate-1'
-                    : 'text-[#2A1D18]/75 hover:text-[#2A1D18] font-bold hover:bg-[#FAF7F0] px-3 py-1 rounded-full'
+                    ? 'text-[#FAF4E8] font-bold bg-[#889A80] shadow-xs'
+                    : 'text-[#3D2E24]/80 hover:text-[#3D2E24] hover:bg-[#889A80]/15'
                 }`}
               >
                 {link.label}
               </button>
             );
           })}
+          <span className="text-[#3D2E24]/40 text-sm ml-1">~ 🌸</span>
         </nav>
 
         {/* Right Celebration CTA */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={onThrowConfetti}
-            className="px-3.5 sm:px-4 py-1.5 bg-[#E8769D] hover:bg-[#d85c86] text-[#2A1D18] font-comic text-xs sm:text-sm font-bold rounded-full border-2 border-[#2A1D18] shadow-[2px_2px_0px_#2A1D18] active:translate-y-0.5 transition-transform cursor-pointer"
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const originX = rect.left + rect.width / 2;
+              const originY = rect.top + rect.height / 2;
+              if (onThrowConfetti) {
+                onThrowConfetti();
+              } else {
+                fireGrandConfettiBurst(originX, originY);
+              }
+            }}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 bg-[#889A80] hover:bg-[#74866C] text-[#FAF4E8] font-hand text-sm font-bold rounded-full shadow-xs hover:shadow-sm transition-all cursor-pointer"
+            title="Throw celebration confetti!"
           >
-            <span>🎊 Throw Joy!</span>
-          </button>
+            <span>🎊</span>
+            <span>Throw Joy!</span>
+          </motion.button>
 
           <button
             onClick={() => scrollTo('rsvp')}
-            className="hidden sm:inline-block px-4 py-1.5 bg-[#6A9A4A] hover:bg-[#59843e] text-[#FFF9ED] font-comic text-xs sm:text-sm font-bold rounded-full border-2 border-[#2A1D18] shadow-[2px_2px_0px_#2A1D18] active:translate-y-0.5 transition-transform cursor-pointer"
+            className="px-3.5 sm:px-4 py-1.5 bg-[#FAF4E8] hover:bg-[#889A80]/15 text-[#3D2E24] font-hand text-sm font-bold rounded-full border border-[#3D2E24]/25 shadow-xs transition-colors cursor-pointer"
           >
             RSVP
           </button>
         </div>
+
       </div>
     </header>
   );

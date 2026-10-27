@@ -203,7 +203,7 @@ export function ScrapbookGallery() {
                     {selectedPhoto.caption}
                   </h3>
                   <p className="font-hand text-xs text-[#D96C4A] font-semibold mt-0.5">
-                    Varshu &amp; Pruthu • Auspicious Celebrations
+                    Varshini &amp; Prithvi • Auspicious Celebrations
                   </p>
                 </div>
                 <div className="flex items-center gap-1 text-[#EF476F]">

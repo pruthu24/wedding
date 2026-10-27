@@ -29,7 +29,7 @@ const SUGGESTED_PROMPTS = [
 const FUNNY_LOADING_PHRASES = [
   'Consulting the wedding astrologer 📜✨...',
   'Checking the happy guest list 🧐📝...',
-  'Asking Varshu what to say next 🏃‍♀️💨...',
+  'Asking Varshini what to say next 🏃‍♀️💨...',
   'Waking up Prithvi for the answer 😴☕...',
   'Arranging the fragrant jasmine garlands 🌸...',
   'Polishing the wedding rings 💍✨...',
@@ -148,7 +148,7 @@ export function DoodleRSVP() {
           ...prev,
           {
             role: 'ai',
-            content: fullContent || "I'm right here with Prithvi & Varshu! How can I help you next?",
+            content: fullContent || "I'm right here with Prithvi & Varshini! How can I help you next?",
             rawContent: fullContent,
           },
         ]);
@@ -243,7 +243,7 @@ export function DoodleRSVP() {
             <ConciergeMascot isTyping={isTyping} />
             <div>
               <h3 className="font-doodle text-xl sm:text-2xl font-bold text-[#262626] leading-none">
-                Prithvi &amp; Varshu&apos;s Assistant
+                Prithvi &amp; Varshini&apos;s Assistant
               </h3>
               <p className="font-hand text-xs text-[#06D6A0] font-bold mt-0.5 flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-[#06D6A0] animate-pulse" />
